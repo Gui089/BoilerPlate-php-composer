@@ -1,0 +1,19 @@
+{
+    "name": "curso/php",
+    "description": "curso de php",
+    "type": "project",
+    "autoload": {
+        "psr-4": {
+            "App\\": "src/"
+        }
+    },
+    "authors": [
+        {
+            "name": "Guilherme"
+        }
+    ],
+    "minimum-stability": "stable",
+    "require": {
+        "monolog/monolog": "^3.8"
+    }
+}
