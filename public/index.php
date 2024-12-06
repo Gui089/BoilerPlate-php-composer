@@ -1,12 +1,14 @@
 <?php
-
 require __DIR__."/../vendor/autoload.php";
 
-use App\Greeting;
-use App\Logger;
+use App\models\Product;
 
-$greeting = new Greeting();
+$products = Product::all();
 
-echo $greeting->message("Guilherme");
+$filteredProducts = array_filter($products, static fn(array $product) => $product['Is_available'] == true);
+$title = "my web store";
 
-(new Logger())->write("Guilherme access the aplication");
+require __DIR__."/../resources/views/index.phtml";
+
+?>
+
