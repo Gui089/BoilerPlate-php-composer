@@ -3,17 +3,30 @@
     <?php include __DIR__."/../views/includes/head.phtml"?>
 </head>
 <body>
-<h1>
-    Available Products
-</h1>
+  <div class="min-h-full">
+      <nav>
+          <div class="container">
+              <div class="flex items-center">
+                   <a href="/" class="nav-item">Home</a>
+                   <a href="/products" class="nav-item">Products</a>
+                   <a href="/contact" class="nav-item">Contact</a>
+              </div>
+          </div>
+      </nav>
 
-<ul>
-    <?php foreach ($filteredProducts as $product): ?>
-        <li>
-            <strong> <?= $product['name'] ?></strong>
-            <span> <?= $product['price'] ?></span>
-        </li>
-    <?php endforeach; ?>
-</ul>
+      <header>
+          <div class="container">
+              <h1 id="page-title">
+                  Home
+              </h1>
+          </div>
+      </header>
+
+      <main>
+          <div class="container" style="padding: 2rem 0">
+              My Main content here!
+          </div>
+      </main>
+  </div>
 </body>
 </html>
