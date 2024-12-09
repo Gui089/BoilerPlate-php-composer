@@ -1,4 +1,7 @@
 {
+  "scripts": {
+    "dev": "npx mix watch"
+  },
   "dependencies": {
     "laravel-mix": "^6.0.49"
   },
