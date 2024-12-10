@@ -1,15 +1,22 @@
 <?php
+
 require __DIR__."/../vendor/autoload.php";
+require __DIR__."/../src/helpers.php";
 
-use App\models\Product;
+$uri = $_SERVER['REQUEST_URI'];
+$uri = parse_url($uri, PHP_URL_PATH);
 
-$products = Product::all();
+$routes = [
+    "/" =>"home",
+    "/contact"=>"contact"
+];
 
-$filteredProducts = array_filter($products, static fn(array $product) => $product['Is_available'] == true);
-$title = "my web store";
-$heading = "Home";
+if(array_key_exists($uri, $routes)) {
+    require('../src/Controllers/' . $routes[$uri] . ".php");
+} else {
+    http_response_code(404);
 
-require __DIR__ . "/../resources/views/index.php";
+    require('../resources/views/404.php');
 
-?>
-
+    die();
+}
