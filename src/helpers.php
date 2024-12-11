@@ -21,3 +21,10 @@ if(!function_exists('abort')) {
         die();
     }
 }
+
+if(!function_exists('format_money')) {
+    function format_money(int $value):string {
+        $money = $value / 100;
+        return 'R$' . number_format($value, 2, ',', '.');
+    }
+}

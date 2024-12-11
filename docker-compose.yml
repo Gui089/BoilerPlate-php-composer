@@ -1,0 +1,11 @@
+version: '3.8'
+
+services:
+  api-solid-pg:
+    image: bitnami/postgresql
+    ports:
+      - "5446:5432"
+    environment:
+      - POSTGRESQL_USERNAME=ecomerce
+      - POSTGRESQL_PASSWORD=ecomerce321
+      - POSTGRESQL_DATABASE=ecomercedb

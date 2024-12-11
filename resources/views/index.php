@@ -4,7 +4,11 @@
 
       <main>
           <div class="mx-auto max-w-7xl py-6 px-8">
-              My Main content here!
+              <ul>
+                  <?php foreach ($products as $product): ?>
+                   <li><?= $product['name']?> - <?= format_money($product['price']) ?></li>
+                  <?php endforeach; ?>
+              </ul>
           </div>
       </main>
 
