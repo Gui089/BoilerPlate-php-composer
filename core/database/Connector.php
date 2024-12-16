@@ -12,11 +12,10 @@ class Connector
 
     protected ?string $query = null;
 
-    public function __construct()
+    public function __construct(array $config, string $username, string $password)
     {
-        $dsn = 'pgsql:host=localhost;port=5446;dbname=ecomercedb';
-        $username = 'ecomerce';
-        $password = 'ecomerce321';
+
+        $dsn = 'pgsql:'. http_build_query($config, arg_separator:';');
 
         $this->connection = new PDO($dsn, $username, $password);
     }
