@@ -25,6 +25,6 @@ if(!function_exists('abort')) {
 if(!function_exists('format_money')) {
     function format_money(int $value):string {
         $money = $value / 100;
-        return 'R$' . number_format($value, 2, ',', '.');
+        return 'R$' . number_format($money, 2, ',', '.');
     }
 }

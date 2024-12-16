@@ -5,12 +5,9 @@ use core\database\Connector;
 $title = "my web store";
 $heading = "Home";
 
-$pdo = (new Connector())->connect();
+$db = new Connector();
 
-$statement = $pdo->prepare("SELECT * FROM prodcuts;");
-$statement->execute();
-
-$products = $statement->fetchAll(\PDO::FETCH_ASSOC);
+$products = $db->query("SELECT * FROM prodcuts;")->get();
 
 require __DIR__ . "/../../resources/views/index.php";
 
