@@ -4,13 +4,13 @@ namespace core\database;
 
 class DatabaseConfig
 {
-    private static $instace = null;
+    private static $instace;
 
-    private array $config = [];
+    private array $config;
 
-    private string $username = '';
+    private string $username;
 
-    private string $password = '';
+    private string $password;
 
 
     public static function getInstace(): self

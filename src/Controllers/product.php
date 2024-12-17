@@ -1,10 +1,11 @@
 <?php
 
 use core\database\Connector;
+use core\database\DatabaseConfig;
 
+$dbConfig = DatabaseConfig::getInstace();
 
-
-$product = (new Connector())
+$product = (new Connector($dbConfig))
   ->query("SELECT * FROM prodcuts where id = 1;")
   ->first();
 
