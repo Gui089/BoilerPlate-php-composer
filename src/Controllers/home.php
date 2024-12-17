@@ -1,20 +1,14 @@
 <?php
 
 use core\database\Connector;
+use core\database\DatabaseConfig;
 
 $title = "my web store";
 $heading = "Home";
 
-$config = require __DIR__."/../../config/database.php";
+$dbConfig = DatabaseConfig::getInstace();
 
-[
-   'username' => $username,
-   'password' => $password
-] = $config;
-
-unset($config['username'], $config['password']);
-
-$db = new Connector($config, $username, $password);
+$db = new Connector($dbConfig);
 
 $products = $db->query("SELECT * FROM prodcuts;")->get();
 

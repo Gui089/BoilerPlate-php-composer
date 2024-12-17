@@ -12,12 +12,12 @@ class Connector
 
     protected ?string $query = null;
 
-    public function __construct(array $config, string $username, string $password)
+    public function __construct(DatabaseConfig $config)
     {
 
-        $dsn = 'pgsql:'. http_build_query($config, arg_separator:';');
+        $dsn = 'pgsql:'. http_build_query($config->getConfig(), arg_separator:';');
 
-        $this->connection = new PDO($dsn, $username, $password);
+        $this->connection = new PDO($dsn, $config->getUsername(), $config->getPassword());
     }
 
     public function query(string $query): self
